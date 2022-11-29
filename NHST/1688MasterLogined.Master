@@ -1,0 +1,518 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="1688MasterLogined.master.cs" Inherits="NHST._1688MasterLogined" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+
+    <title>1688 Express</title>
+
+    <link rel="stylesheet" href="/App_Themes/1688/css/style.css" media="all">
+    <link rel="stylesheet" href="/App_Themes/1688/css/style-P.css" media="all">
+    <link rel="stylesheet" href="/App_Themes/1688/css/responsive.css" media="all">
+    <link href="/App_Themes/NewUI/js/select2/select2.css" rel="stylesheet" />
+    <link href="/App_Themes/NewUI/js/sweet/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <script src="/App_Themes/1688/js/jquery-1.9.1.min.js"></script>
+    <script src="/scripts/jquery.signalR-2.2.3.min.js"></script>
+    <script src="/signalr/hubs"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%--<div id="fb-root"></div>
+        <script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+        <style>
+        #cfacebook {
+            position: fixed;
+            bottom: 0px;
+            right: 20px;
+            z-index: 999999999999999;
+            width: 250px;
+            height: auto;
+            box-shadow: 6px 6px 6px 10px rgba(0,0,0,0.2);
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            overflow: hidden;
+        }
+
+            #cfacebook .fchat {
+                float: left;
+                width: 100%;
+                height: 270px;
+                overflow: hidden;
+                display: none;
+                background-color: #fff;
+            }
+
+                #cfacebook .fchat .fb-page {
+                    margin-top: -130px;
+                    float: left;
+                }
+
+            #cfacebook a.chat_fb {
+                float: left;
+                padding: 0 25px;
+                width: 250px;
+                color: #000;
+                text-decoration: none;
+                height: 40px;
+                line-height: 40px;
+                text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAqCAMAAABFoMFOAAAAWlBMV…8/UxBxQDQuFwlpqgBZBq6+P+unVY1GnDgwqbD2zGz5e1lBdwvGGPE6OgAAAABJRU5ErkJggg==);
+                background-repeat: repeat-x;
+                background-size: auto;
+                background-position: 0 0;
+                background-color: #eefc23;
+                border: 0;
+                border-bottom: 1px solid #133783;
+                z-index: 9999999;
+                margin-right: 12px;
+                font-size: 18px;
+            }
+
+                #cfacebook a.chat_fb:hover {
+                    color: #f00;
+                    text-decoration: none;
+                }
+
+        .zalo-icon {
+            width: auto !important;
+            height: auto !important;
+        }
+    </style>
+        <script>
+        jQuery(document).ready(function () {
+            jQuery(".chat_fb").click(function () {
+                jQuery('.fchat').toggle('slow');
+            });
+        });
+        </script>
+        <div id="cfacebook">
+            <a href="javascript:;" class="chat_fb" onclick="return:false;">
+                <img style="width: 20%; float: left; margin: 10px 10px 10px 0px" src="/App_Themes/1688/images/logo-header.png">
+                Tư vấn miễn phí</a>
+            <div class="fchat">
+                <div class="fb-page" data-tabs="messages" data-href="https://www.facebook.com/1688express.com.vn/" data-width="250" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
+            </div>
+        </div>--%>
+        <%-- <div id="fb-root"></div>
+        <script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+        <style>
+        #cfacebook {
+            position: fixed;
+            bottom: 0px;
+            right: 20px;
+            z-index: 999999999999999;
+            width: 250px;
+            height: auto;
+            box-shadow: 6px 6px 6px 10px rgba(0,0,0,0.2);
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            overflow: hidden;
+        }
+
+            #cfacebook .fchat {
+                float: left;
+                width: 100%;
+                height: 270px;
+                overflow: hidden;
+                display: none;
+                background-color: #fff;
+            }
+
+                #cfacebook .fchat .fb-page {
+                    margin-top: -130px;
+                    float: left;
+                }
+
+            #cfacebook a.chat_fb {
+                float: left;
+                padding: 0 25px;
+                width: 250px;
+                color: #000;
+                text-decoration: none;
+                height: 40px;
+                line-height: 40px;
+                text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAqCAMAAABFoMFOAAAAWlBMV…8/UxBxQDQuFwlpqgBZBq6+P+unVY1GnDgwqbD2zGz5e1lBdwvGGPE6OgAAAABJRU5ErkJggg==);
+                background-repeat: repeat-x;
+                background-size: auto;
+                background-position: 0 0;
+                background-color: #eefc23;
+                border: 0;
+                border-bottom: 1px solid #133783;
+                z-index: 9999999;
+                margin-right: 12px;
+                font-size: 18px;
+            }
+
+                #cfacebook a.chat_fb:hover {
+                    color: #f00;
+                    text-decoration: none;
+                }
+
+        .zalo-icon {
+            width: auto !important;
+            height: auto !important;
+        }
+    </style>
+        <script>
+        jQuery(document).ready(function () {
+            jQuery(".chat_fb").click(function () {
+                jQuery('.fchat').toggle('slow');
+            });
+        });
+        </script>
+        <div id="cfacebook">
+            <a href="javascript:;" class="chat_fb" onclick="return:false;"><img style="width: 20%; float: left; margin: 10px 10px 10px 0px" src="/App_Themes/1688/images/logo-header.png"> Tư vấn miễn phí</a>
+            <div class="fchat">
+                <div class="fb-page" data-tabs="messages" data-href="https://www.facebook.com/1688express.com.vn/" data-width="250" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
+            </div>
+        </div>--%>
+        <style type="text/css">
+            .hisella-messages {
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                z-index: 999999;
+            }
+
+            .hisella-messages-outer {
+                position: relative;
+            }
+
+            #hisella-minimize {
+                background: #3b5998;
+                font-size: 14px;
+                color: #fff;
+                padding: 3px 10px;
+                position: absolute;
+                top: -34px;
+                left: -1px;
+                border: 1px solid #E9EAED;
+                cursor: pointer;
+            }
+
+            @media screen and (max-width:768px) {
+                #hisella-facebook {
+                    opacity: 0;
+                }
+
+                .hisella-messages {
+                    bottom: -300px;
+                    right: -135px;
+                }
+            }
+        </style>
+        <div id='fb-root'></div>
+        <script>
+            (function ($) { $(document).ready(function () { $('#hisella-minimize').click(function () { if ($('#hisella-facebook').css('opacity') == 0) { $('#hisella-facebook').css('opacity', 1); $('.hisella-messages').animate({ right: '0' }).animate({ bottom: '0' }); } else { $('.hisella-messages').animate({ bottom: '-300px' }).animate({ right: '-135px' }, 400, function () { $('#hisella-facebook').css('opacity', 0) }); } }) }); })(jQuery);
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <div class="hisella-messages">
+            <div class="hisella-messages-outer">
+                <div id="hisella-minimize">TƯ VẤN MIỄN PHÍ (Tel:024-6326-5589)</div>
+                <div id="hisella-facebook" class='fb-page' data-adapt-container-width='true' data-height='350' data-hide-cover='false' data-href='https://www.facebook.com/1688express.com.vn' data-show-facepile='true' data-show-posts='false' data-small-header='false' data-tabs='messages' data-width='300'></div>
+            </div>
+        </div>
+        <telerik:RadScriptManager ID="rsm" runat="server" EnablePageMethods="true" EnablePartialRendering="true">
+        </telerik:RadScriptManager>
+        <header id="header">
+            <div class="hd-top">
+                <div class="all">
+                    <div class="top-wrap">
+                        <asp:Literal ID="ltrTopLeft" runat="server"></asp:Literal>
+                        <div class="top__right">
+                            <asp:Literal ID="ltrLogin" runat="server"></asp:Literal>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="all">
+                <div class="hd-main">
+                    <div class="logo">
+                        <div class="img">
+                            <a href="/">
+                                <img src="/App_Themes/1688/images/logo-header.png" alt="logo brand">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="navbar-toggle">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                    <div class="main-right">
+                        <div class="nav-wrap" id="hd-nav">
+                            <div class="nav-overlay"></div>
+                            <ul class="nav-ul clear">
+                                <li class="nav-item giohang"><a href="/gio-hang">Giỏ hàng</a></li>
+                                <li class="nav-item donhang"><a href="/danh-sach-don-hang">Đơn hàng</a></li>
+                                <%--<li class="nav-item donhang has-dropdown"><a href="/danh-sach-don-hang">Đơn hàng</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/tao-don-hang-khac">Tạo đơn hàng</a></li>                                        
+                                    </ul>
+                                </li>--%>
+                                <li class="nav-item taichinh has-dropdown">
+                                    <a href="/lich-su-giao-dich">Tài chính</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/lich-su-giao-dich">Lịch sử giao dịch</a></li>
+                                        <li><a href="/nap-tien">Nạp tiền</a></li>                                        
+                                        <%--<li><a href="/rut-tien">Rút tiền</a></li>--%>
+                                        <li><a href="/bang-tich-luy-diem">Điểm tích lũy</a></li>
+                                        <%--<li><a href="/lich-su-giao-dich-tien-te">Lịch sử giao dịch tiền tệ</a></li>--%>
+                                        <%--<li><a href="/nap-tien-te">Nạp tiền tệ</a></li>--%>
+                                    </ul>
+                                </li>
+                                <li class="nav-item khieunai"><a href="/khieu-nai">Khiếu nại</a></li>
+                                <asp:Literal ID="ltrOrderService" runat="server"></asp:Literal>
+                                <%--<li class="nav-item taichinh has-dropdown">
+                                    <a href="javascript:;">Dịch vụ</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/thanh-toan-ho">Thanh toán hộ</a></li>
+                                        <li><a href="/danh-sach-don-van-chuyen-ho">Vận chuyển hộ</a></li>
+                                        <li><a href="/tao-don-hang-van-chuyen">Tạo đơn vận chuyển hộ</a></li>
+                                    </ul>
+                                </li>--%>
+                                <%--<li class="nav-item thanhtoanho"><a href="/thanh-toan-ho">Thanh toán hộ</a></li>
+                                <li class="nav-item vanchuyenho"><a href="/danh-sach-don-van-chuyen-ho">Vận chuyển hộ</a></li>--%>
+                                <li class="nav-item quanlytaikhoan"><a href="/thong-tin-nguoi-dung">Quản lý tài khoản</a></li>
+                                <li class="nav-item baogia">
+                                    <a class="nav-item__name" href="/chuyen-muc/bao-gia">Bảng giá</a>
+                                </li>
+                                <li class="nav-item chinhsach">
+                                    <a class="nav-item__name " href="/chuyen-muc/chinh-sach">Chính sách</a>
+                                </li>
+                                <li class="nav-item huongdan">
+                                    <a class="nav-item__name " href="/chuyen-muc/huong-dan">Hướng dẫn</a>
+                                </li>
+                                <li><a href="/dang-xuat">Đăng xuất</a></li>
+                            </ul>
+                        </div>
+                        <div class="search">
+                            <a role="button" class="btn"><i class="fas fa-search"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-box">
+                    <div class="wrap">
+                        <div class="select">
+                            <asp:DropDownList ID="ddlWeb" runat="server" CssClass="form-control">
+                                <asp:ListItem Value="taobao" Text="Taobao"></asp:ListItem>
+                                <asp:ListItem Value="1688" Text="1688"></asp:ListItem>
+                                <asp:ListItem Value="tmall" Text="Tmall"></asp:ListItem>
+                            </asp:DropDownList>
+                            <span class="icon"><i class="fas fa-angle-down"></i></span>
+                        </div>
+                        <div class="input">
+                            <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" placeholder="Tìm kiếm sản phẩm"></asp:TextBox>
+                            <span class="button">
+                                <asp:Button ID="btnSearch" runat="server" CssClass="btn" Text="tìm kiếm" OnClick="btnSearch_Click"
+                                    OnClientClick="document.forms[0].target = '_blank';" />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer id="footer">
+            <div class="ft-sys">
+                <div class="all center-txt">
+                    Designed and developed by 
+                    <a href="https://mona-media.com" target="_blank" title="Công ty thiế kế website chuyên nghiệp">
+                        <strong>Mona Media</strong>
+                        <img src="https://mona-media.com/logo.png" style="width: 20px; vertical-align: sub;" alt="MonaMedia"></a>&nbsp;
+                </div>
+            </div>
+        </footer>
+
+        <a href="javascript:;" class="scroll-top-link" id="scroll-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+
+        <script src="/App_Themes/1688/js/slick/slick.min.js"></script>
+        <script src="/App_Themes/NewUI/js/sweet/sweet-alert.js" type="text/javascript"></script>
+        <%--<script src="/App_Themes/1688/js/sweetalert2.all.js"></script>--%>
+        <script src="/App_Themes/NewUI/js/select2/select2.min.js"></script>
+        <script src="/App_Themes/1688/js/master.js"></script>
+        <script async="" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_roqaeKE7ULRUNw5wG0i8TqvWRsSJ2JY&amp;callback=loadGoogleMap"></script>
+
+        <script>
+            jQuery(document).ready(function () {
+                $('#header .hd-main .main-right .search .btn').on('click', function (e) {
+                    e.stopPropagation();
+                    $('#header .search-box').show();
+                })
+
+                $(document).on('click', function (e) {
+
+                    if ($('#header .search-box').is(":visible")) {
+                        if (!$('#header .search-box').is(e.target) && $('#header .search-box').has(e.target).length === 0) {
+                            $('#header .search-box').hide();
+                        }
+                    }
+                })
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                LoadSelect();
+                setActiveMenu(window.location.pathname);
+                //$('#main-nav-area').sticky({ zIndex: 999 });
+            });
+            function LoadSelect() {
+                $(".select2").select2({});
+                setActive();
+            }
+            function setActive() {
+                $('body').addClass('child-page');
+            }
+            function setActiveMenu(path) {
+                if (path.toLowerCase().indexOf('/danh-sach-don-hang') != -1) {
+                    $('ul.nav-ul > li.donhang').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/gio-hang') != -1) {
+                    $('ul.nav-ul > li.giohang').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/lich-su-giao-dich') != -1) {
+                    $('ul.nav-ul > li.taichinh').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/nap-tien') != -1) {
+                    $('ul.nav-ul > li.taichinh').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/rut-tien') != -1) {
+                    $('ul.nav-ul > li.taichinh').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/bang-tich-luy-diem') != -1) {
+                    $('ul.nav-ul > li.taichinh').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/khieu-nai') != -1) {
+                    $('ul.nav-ul > li.khieunai').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/thong-tin-nguoi-dung') != -1) {
+                    $('ul.nav-ul > li.quanlytaikhoan').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/ho-tro') != -1) {
+                    $('ul.nav-ul > li.hotro').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/quan-ly-van-chuyen') != -1) {
+                    $('ul.nav-ul > li.kygui').addClass("current");
+                }
+            }
+
+            function OnClientFileSelected(sender, args) {
+                if ($telerik.isIE) return;
+                else {
+                    truncateName(args);
+                    var file = args.get_fileInputField().files.item(args.get_rowIndex());
+                    //var file = args.get_fileInputField().files.item(0);
+                    showThumbnail(file, args);
+                }
+            }
+
+
+            function truncateName(args) {
+                var $span = $(".ruUploadProgress", args.get_row());
+                var text = $span.text();
+                if (text.length > 23) {
+                    var newString = text.substring(0, 23) + '...';
+                    $span.text(newString);
+                }
+            }
+
+            function showThumbnail(file, args) {
+
+                var image = document.createElement("img");
+
+                image.file = file;
+                image.className = "ab img-responsive";
+
+                var $row = $(args.get_row());
+                $row.parent().className = "row ruInputs list-unstyled";
+                $row.append(image);
+
+
+                var reader = new FileReader();
+                reader.onload = (function (aImg) {
+                    return function (e) {
+                        aImg.src = e.target.result;
+                    };
+                }(image));
+                var ret = reader.readAsDataURL(file);
+                var canvas = document.createElement("canvas");
+
+                ctx = canvas.getContext("2d");
+                image.onload = function () {
+                    ctx.drawImage(image, 100, 100);
+                };
+
+            }
+            $('ul#pri-menu > li > a').click(function (e) {
+                e.preventDefault();
+                var target = $(this).data('href');
+                if (target !== undefined) {
+                    $("body,html").animate({ scrollTop: $(target).offset().top }, 500);
+                } else {
+                    location.href = $(this).attr('href');
+                }
+            });
+            function updatestatusnoti(id, username, orderid) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Default.aspx/UpdateNotification",
+                    data: "{ID:'" + id + "',UserName:'" + username + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.d == "ok") {
+                            window.location.href = "/chi-tiet-don-hang/" + orderid;
+                        }
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrow) {
+                        alert('lỗi');
+                    }
+                });
+            }
+        </script>
+        <style>
+            div.RadUploadSubmit, div.RadUpload_Metro .ruButton
+            {
+                padding-left:20px;
+            }
+        </style>
+    </form>
+</body>
+</html>
